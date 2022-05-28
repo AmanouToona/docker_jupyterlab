@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  python_service:
+    container_name: python_container
+    build: .
+    volumes:
+      - "./code/:/root/code/"
+    tty: true
+    restart: always
+    working_dir: /root/code/
+    ports:
+      - "7777:8888"
+    expose:
+      - "7777"
+    command: "jupyter-lab --allow-root --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --notebook-dir=/root/code/"
