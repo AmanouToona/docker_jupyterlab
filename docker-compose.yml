@@ -6,7 +6,6 @@ services:
     build: .
     volumes:
       - "./code/:/root/code/"
-    tty: true
     restart: always
     working_dir: /root/code/
     ports:
